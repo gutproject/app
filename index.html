@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8"/>
+	</head>
+	<body>
+		<h3>Unit converter</h3>
+		<label>From:</label>
+		<br/>
+		<input id="valueCurrency">
+		<select id="currencyTypeFrom">
+			<option value="EUR">EUR</option>
+			<option value="PLN">PLN</option>
+		</select>
+		<br/>
+		<label>To:</label>
+		<select id="currencyTypeTo">
+			<option value="EUR">EUR</option>
+			<option value="PLN">PLN</option>
+		</select>
+		<br/>
+		<br/>
+		<button onclick="convert()">Convert</button>
+		<p id="result"></p>
+		<script>
+		function convert() {
+			var valueCurrency = document.getElementById("valueCurrency").value;
+			var currencyTypeFrom = document.getElementById("currencyTypeFrom").value;
+			var currencyTypeTo = document.getElementById("currencyTypeTo").value;
+			var n = parseFloat(valueCurrency);
+			var ONE_EURO = 4.55;
+			if (currencyTypeFrom == "EUR" && currencyTypeTo == "PLN")
+				n *= ONE_EURO;
+			else if (currencyTypeFrom == "PLN" && currencyTypeTo == "EUR")
+				n /= ONE_EURO;
+			var output = valueCurrency + " " + currencyTypeFrom + " = " + n.toFixed(2) + " " + currencyTypeTo;
+			document.getElementById("result").innerHTML = output;
+		}
+		</script>
+	</body>
+</html>
