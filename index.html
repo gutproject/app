@@ -28,6 +28,7 @@
 			var currencyTypeFrom = document.getElementById("currencyTypeFrom").value;
 			var currencyTypeTo = document.getElementById("currencyTypeTo").value;
 			var n = parseFloat(valueCurrency);
+			if (!isNaN(n)) {
 			var ONE_EURO = 4.55;
 			if (currencyTypeFrom == "EUR" && currencyTypeTo == "PLN")
 				n *= ONE_EURO;
@@ -35,6 +36,10 @@
 				n /= ONE_EURO;
 			var output = valueCurrency + " " + currencyTypeFrom + " = " + n.toFixed(2) + " " + currencyTypeTo;
 			document.getElementById("result").innerHTML = output;
+			}
+			else {
+			document.getElementById("result").innerHTML = "Your input is incorrect";
+			}
 		}
 		</script>
 	</body>
